@@ -8,9 +8,9 @@
 
 #import "AppDelegate.h"
 
-#import "FirstViewController.h"
+#import "CurrentWeather_Controller.h"
 
-#import "SecondViewController.h"
+#import "Charts_Controller.h"
 
 @implementation AppDelegate
 
@@ -18,8 +18,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-	UIViewController *viewController1 = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
-	UIViewController *viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
+	UIViewController *viewController1 = [[CurrentWeather_Controller alloc] initWithNibName:@"CurrentWeather_Controller" bundle:nil];
+	UIViewController *viewController2 = [[Charts_Controller alloc] initWithNibName:@"Charts_Controller" bundle:nil];
 	self.tabBarController = [[UITabBarController alloc] init];
 	self.tabBarController.viewControllers = @[viewController1, viewController2];
 	self.window.rootViewController = self.tabBarController;
