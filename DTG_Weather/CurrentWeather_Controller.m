@@ -10,6 +10,7 @@
 #import "DTG_WeatherStation.h"
 #import "Weather.h"
 #import "PopupChart_ControllerViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define degreesToRadians( degrees ) ( ( degrees ) / 180.0 * M_PI )
 
@@ -53,6 +54,14 @@
 	[wind_dir_label setText:@""];
 	[sun_label setText:@""];
 	
+	//The gray background
+	CGRect main_frame = [[UIScreen mainScreen] bounds];
+	UIView *grey_bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, main_frame.size.width, main_frame.size.height)];
+	[grey_bg setBackgroundColor:[UIColor blackColor]];
+	[grey_bg setAlpha:0.2];
+	[[self view] insertSubview:grey_bg atIndex:1];
+	
+	/*
 	//Rotate the pins
 	dial_temp_pin.transform = CGAffineTransformMakeRotation(-1.570796327);
 	dial_humid_pin.transform = CGAffineTransformMakeRotation(-1.570796327);
@@ -60,6 +69,7 @@
 	dial_dew_pin.transform = CGAffineTransformMakeRotation(-1.570796327);
 	dial_rain_pin.transform = CGAffineTransformMakeRotation(-1.570796327);
 	dial_wind_pin.transform = CGAffineTransformMakeRotation(-1.570796327);
+	 */
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -105,7 +115,8 @@
 				NSString *curr_wind = [NSString stringWithFormat:@"%.0fkts",[temp_weather wind_speed]];
 				NSString *curr_wind_dir = [NSString stringWithFormat:@"Wind direction: %@",[temp_weather wind_direction]];
 				NSString *curr_sun = [NSString stringWithFormat:@"Sunshine today: %.1fhrs",[temp_weather sun_hours]];
-				
+
+				/*
 				//Calculate the post anim positions
 				float total_dial = 270.0f;
 				
@@ -152,8 +163,10 @@
 				float wind_dial_deg = wind_per*total_dial;
 				wind_dial_deg = wind_dial_deg-135.0f;
 				float wind_dial_rad = degreesToRadians(wind_dial_deg);
+				 */
 				
 				dispatch_sync(dispatch_get_main_queue(), ^{
+					/*
 					//Setup the labels
 					current_weather = temp_weather;
 					update_timestamp = [NSDate timeIntervalSinceReferenceDate];
@@ -175,6 +188,13 @@
 						dial_rain_pin.transform = CGAffineTransformMakeRotation(rain_dial_rad);
 						dial_wind_pin.transform = CGAffineTransformMakeRotation(wind_dial_rad);
 					}completion:nil];
+					 */
+					[temp_label setText:curr_temp];
+					[humid_label setText:curr_humid];
+					[pressure_label setText:curr_press];
+					[dew_label setText:curr_dew];
+					[rain_label setText:curr_rain];
+					[wind_label setText:curr_wind];
 				});
 			}
 		});

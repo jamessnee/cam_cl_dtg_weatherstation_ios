@@ -8,14 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "CorePlot-CocoaTouch.h"
+#import <MapKit/MapKit.h>
 
-@interface Charts_Controller : UIViewController <CPTPlotDataSource>
+@interface Charts_Controller : UIViewController <MKMapViewDelegate>
 
-@property(strong)IBOutlet CPTGraphHostingView *hostView;
-@property(strong)CPTXYGraph *graph;
-
--(void)initPlot;
-
+@property(strong)IBOutlet MKMapView *mapView;
 
 @end
 

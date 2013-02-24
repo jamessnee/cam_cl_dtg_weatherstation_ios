@@ -26,6 +26,9 @@
 		59A2661016BAB6D4004FD86A /* Charts_Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A2660E16BAB6D4004FD86A /* Charts_Controller.xib */; };
 		59A2661E16BAB822004FD86A /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A2661D16BAB822004FD86A /* Weather.m */; };
 		59A2662116BAB9DE004FD86A /* DTG_WeatherStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A2662016BAB9DE004FD86A /* DTG_WeatherStation.m */; };
+		59AFA25D16D98590000E8EA6 /* bg_clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = 59AFA25C16D98590000E8EA6 /* bg_clouds.png */; };
+		59AFA25F16D98646000E8EA6 /* bg_about.png in Resources */ = {isa = PBXBuildFile; fileRef = 59AFA25E16D98646000E8EA6 /* bg_about.png */; };
+		59AFA26116D98A9F000E8EA6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59AFA26016D98A9F000E8EA6 /* MapKit.framework */; };
 		59DE696F16BD52B6005060F7 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 59DE696E16BD52B6005060F7 /* background.png */; };
 		59DE697716BD5715005060F7 /* dial_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 59DE697616BD5715005060F7 /* dial_bg.png */; };
 		59DE697916BD6033005060F7 /* dial_colours.png in Resources */ = {isa = PBXBuildFile; fileRef = 59DE697816BD6033005060F7 /* dial_colours.png */; };
@@ -66,6 +69,9 @@
 		59A2661D16BAB822004FD86A /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 		59A2661F16BAB9DE004FD86A /* DTG_WeatherStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTG_WeatherStation.h; sourceTree = "<group>"; };
 		59A2662016BAB9DE004FD86A /* DTG_WeatherStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTG_WeatherStation.m; sourceTree = "<group>"; };
+		59AFA25C16D98590000E8EA6 /* bg_clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_clouds.png; sourceTree = "<group>"; };
+		59AFA25E16D98646000E8EA6 /* bg_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_about.png; sourceTree = "<group>"; };
+		59AFA26016D98A9F000E8EA6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		59DE696E16BD52B6005060F7 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		59DE697616BD5715005060F7 /* dial_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dial_bg.png; sourceTree = "<group>"; };
 		59DE697816BD6033005060F7 /* dial_colours.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dial_colours.png; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59AFA26116D98A9F000E8EA6 /* MapKit.framework in Frameworks */,
 				59DE698716BD7EC7005060F7 /* QuartzCore.framework in Frameworks */,
 				59A265E616BAB6D4004FD86A /* UIKit.framework in Frameworks */,
 				59A265E816BAB6D4004FD86A /* Foundation.framework in Frameworks */,
@@ -188,6 +195,7 @@
 		59A265E416BAB6D4004FD86A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59AFA26016D98A9F000E8EA6 /* MapKit.framework */,
 				59DE698616BD7EC7005060F7 /* QuartzCore.framework */,
 				59A265E516BAB6D4004FD86A /* UIKit.framework */,
 				59A265E716BAB6D4004FD86A /* Foundation.framework */,
@@ -258,6 +266,8 @@
 		59DE696D16BD52AB005060F7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				59AFA25E16D98646000E8EA6 /* bg_about.png */,
+				59AFA25C16D98590000E8EA6 /* bg_clouds.png */,
 				59DE698116BD6B7B005060F7 /* title_bg.png */,
 				59A2660016BAB6D4004FD86A /* first.png */,
 				59A2660216BAB6D4004FD86A /* first@2x.png */,
@@ -441,6 +451,8 @@
 				59DE697F16BD66B7005060F7 /* pin.png in Resources */,
 				59DE698216BD6B7B005060F7 /* title_bg.png in Resources */,
 				59EF6C0C16BDDC57003A5129 /* PopupChart_ControllerViewController.xib in Resources */,
+				59AFA25D16D98590000E8EA6 /* bg_clouds.png in Resources */,
+				59AFA25F16D98646000E8EA6 /* bg_about.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
