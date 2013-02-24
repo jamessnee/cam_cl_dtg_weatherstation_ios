@@ -51,6 +51,14 @@ float max_y;
     [[self mapView] setRegion:CSC animated:YES];
 	[[self mapView] setScrollEnabled:NO];
 	[[self mapView] setZoomEnabled:NO];
+	
+	// Place a single pin
+	MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+	CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(52.210953, 0.091946);
+	[annotation setCoordinate:coordinate];
+	[annotation setTitle:@"Computer Laboratory"]; //You can set the subtitle too
+	[annotation setSubtitle:@"University of Cambridge"];
+	[self.mapView addAnnotation:annotation];
 }
 
 - (void)didReceiveMemoryWarning

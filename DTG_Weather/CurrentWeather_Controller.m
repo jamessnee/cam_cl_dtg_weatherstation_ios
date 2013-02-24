@@ -210,7 +210,7 @@
 					NSCalendarUnit unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit| NSWeekCalendarUnit |NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
 					NSDate *date = [NSDate date];
 					NSDateComponents *dateComponents = [calendar components:unitFlags fromDate:date];
-					NSString *update_str = [NSString stringWithFormat:@"Last update: %d:%d:%d",[dateComponents hour],[dateComponents minute],[dateComponents second]];
+					NSString *update_str = [NSString stringWithFormat:@"Last update: %d:%d",[dateComponents hour],[dateComponents minute]];
 					[update_label setText:update_str];
 					
 					if(current_weather){

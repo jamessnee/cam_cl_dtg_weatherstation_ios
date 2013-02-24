@@ -31,6 +31,4 @@
 
 -(void)update_weather;
 
--(IBAction)showChart_selected:(id)sender;
-
 @end
