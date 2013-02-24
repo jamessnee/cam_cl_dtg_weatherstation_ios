@@ -82,7 +82,7 @@
 }
 
 - (NSArray *) get_weatherForToday{
-	NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	//NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 	
 	NSError *error;
 	NSString *weather_string = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.cl.cam.ac.uk/research/dtg/weather/daily-text.cgi?2013-02-02"] encoding:NSUTF8StringEncoding error:&error];

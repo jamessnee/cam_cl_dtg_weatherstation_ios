@@ -16,19 +16,22 @@
 
 @interface CurrentWeather_Controller ()
 	@property long update_timestamp;
+	@property (strong)NSTimer *timer;
 @end
 
 @implementation CurrentWeather_Controller
-@synthesize dial_temp,dial_temp_pin,temp_label;
-@synthesize dial_humid,dial_humid_pin,humid_label;
-@synthesize dial_pressure,dial_pressure_pin,pressure_label;
-@synthesize dial_dew,dial_dew_pin,dew_label;
-@synthesize dial_rain,dial_rain_pin,rain_label;
-@synthesize dial_wind,dial_wind_pin,wind_label;
-@synthesize wind_dir_label,sun_label;
+@synthesize temp_label;
+@synthesize humid_label;
+@synthesize pressure_label;
+@synthesize dew_label;
+@synthesize rain_label;
+@synthesize wind_label;
 @synthesize current_weather;
 @synthesize update_timestamp;
-@synthesize tempChart,humidChart,pressureChart,dewChart,rainChart,windChart;
+@synthesize update_label;
+@synthesize timer;
+@synthesize temp_arrow,humid_arrow,pressure_arrow,dew_arrow,wind_arrow,rain_arrow;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,8 +54,6 @@
 	[dew_label setText:@""];
 	[rain_label setText:@""];
 	[wind_label setText:@""];
-	[wind_dir_label setText:@""];
-	[sun_label setText:@""];
 	
 	//The gray background
 	CGRect main_frame = [[UIScreen mainScreen] bounds];
@@ -70,12 +71,15 @@
 	dial_rain_pin.transform = CGAffineTransformMakeRotation(-1.570796327);
 	dial_wind_pin.transform = CGAffineTransformMakeRotation(-1.570796327);
 	 */
+	
+	timer = [NSTimer scheduledTimerWithTimeInterval:60.0 target:self selector:@selector(update_weather) userInfo:nil repeats:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
 	[self update_weather];
 }
 
+/*
 -(IBAction)showChart_selected:(id)sender{
 	UIButton *caller = (UIButton *)sender;
 	PopupChart_ControllerViewController *popup_temp = [[PopupChart_ControllerViewController alloc] initWithNibName:@"PopupChart_ControllerViewController" bundle:nil];
@@ -95,11 +99,16 @@
 	
 	[self presentViewController:popup_temp animated:YES completion:nil];
 }
+ */
 
 
 -(void)update_weather{
 	long curr_time = [NSDate timeIntervalSinceReferenceDate];
 	if(update_timestamp==-1||(curr_time-update_timestamp)>30){
+	//if(YES){
+		
+		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+		
 		dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0ul);
 		dispatch_async(queue, ^{
 			DTG_WeatherStation *weather_station = [[DTG_WeatherStation alloc] init];
@@ -113,8 +122,6 @@
 				NSString *curr_dew = [NSString stringWithFormat:@"%.1f%%",[temp_weather dew_point]];
 				NSString *curr_rain = [NSString stringWithFormat:@"%.1fmm",[temp_weather rain]];
 				NSString *curr_wind = [NSString stringWithFormat:@"%.0fkts",[temp_weather wind_speed]];
-				NSString *curr_wind_dir = [NSString stringWithFormat:@"Wind direction: %@",[temp_weather wind_direction]];
-				NSString *curr_sun = [NSString stringWithFormat:@"Sunshine today: %.1fhrs",[temp_weather sun_hours]];
 
 				/*
 				//Calculate the post anim positions
@@ -166,6 +173,7 @@
 				 */
 				
 				dispatch_sync(dispatch_get_main_queue(), ^{
+					[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 					/*
 					//Setup the labels
 					current_weather = temp_weather;
@@ -189,12 +197,54 @@
 						dial_wind_pin.transform = CGAffineTransformMakeRotation(wind_dial_rad);
 					}completion:nil];
 					 */
+					update_timestamp = [NSDate timeIntervalSinceReferenceDate];
+					
 					[temp_label setText:curr_temp];
 					[humid_label setText:curr_humid];
 					[pressure_label setText:curr_press];
 					[dew_label setText:curr_dew];
 					[rain_label setText:curr_rain];
 					[wind_label setText:curr_wind];
+					
+					NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+					NSCalendarUnit unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit| NSWeekCalendarUnit |NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+					NSDate *date = [NSDate date];
+					NSDateComponents *dateComponents = [calendar components:unitFlags fromDate:date];
+					NSString *update_str = [NSString stringWithFormat:@"Last update: %d:%d:%d",[dateComponents hour],[dateComponents minute],[dateComponents second]];
+					[update_label setText:update_str];
+					
+					if(current_weather){
+						if([current_weather temp]>[temp_weather temp])
+							[temp_arrow setImage:[UIImage imageNamed:@"arrow_down.png"]];
+						else if([current_weather temp]<[temp_weather temp])
+							[temp_arrow setImage:[UIImage imageNamed:@"arrow_up.png"]];
+						
+						if([current_weather humidity]>[temp_weather humidity])
+							[humid_arrow setImage:[UIImage imageNamed:@"arrow_down.png"]];
+						else if([current_weather humidity]<[temp_weather humidity])
+							[humid_arrow setImage:[UIImage imageNamed:@"arrow_up.png"]];
+						
+						if([current_weather pressure]>[temp_weather pressure])
+							[pressure_arrow setImage:[UIImage imageNamed:@"arrow_down.png"]];
+						else if([current_weather pressure]<[temp_weather pressure])
+							[pressure_arrow setImage:[UIImage imageNamed:@"arrow_up.png"]];
+						
+						if([current_weather dew_point]>[temp_weather dew_point])
+							[dew_arrow setImage:[UIImage imageNamed:@"arrow_down.png"]];
+						else if([current_weather dew_point]<[temp_weather dew_point])
+							[dew_arrow setImage:[UIImage imageNamed:@"arrow_up.png"]];
+						
+						if([current_weather rain]>[temp_weather rain])
+							[rain_arrow setImage:[UIImage imageNamed:@"arrow_down.png"]];
+						else if([current_weather rain]<[temp_weather rain])
+							[rain_arrow setImage:[UIImage imageNamed:@"arrow_up.png"]];
+						
+						if([current_weather wind_speed]>[temp_weather wind_speed])
+							[wind_arrow setImage:[UIImage imageNamed:@"arrow_down.png"]];
+						else if([current_weather wind_speed]<[temp_weather wind_speed])
+							[wind_arrow setImage:[UIImage imageNamed:@"arrow_up.png"]];
+					}
+					current_weather = temp_weather;
 				});
 			}
 		});
