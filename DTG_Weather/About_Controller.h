@@ -14,5 +14,7 @@
 
 @property(strong)IBOutlet MKMapView *mapView;
 
+-(IBAction)dtg_site_clicked:(id)sender;
+
 @end
 

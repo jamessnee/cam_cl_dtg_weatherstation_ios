@@ -61,6 +61,10 @@ float max_y;
 	[self.mapView addAnnotation:annotation];
 }
 
+-(IBAction)dtg_site_clicked:(id)sender{
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.cl.cam.ac.uk/research/dtg/www"]];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
