@@ -10,4 +10,9 @@
 
 @interface Settings_Controller : UIViewController
 
+@property(strong)IBOutlet UILabel *update_time;
+@property(strong)IBOutlet UIStepper *stepper;
+
+-(IBAction)value_changed:(id)sender;
+
 @end

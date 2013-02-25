@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 #import "CurrentWeather_Controller.h"
-#import "Charts_Controller.h"
+#import "About_Controller.h"
 #import "Settings_Controller.h"
 
 @implementation AppDelegate
@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
 	UIViewController *viewController1 = [[CurrentWeather_Controller alloc] initWithNibName:@"CurrentWeather_Controller" bundle:nil];
 	UIViewController *viewController2 = [[Settings_Controller alloc] initWithNibName:@"Settings_Controller" bundle:nil];
-	UIViewController *viewController3 = [[Charts_Controller alloc] initWithNibName:@"Charts_Controller" bundle:nil];
+	UIViewController *viewController3 = [[About_Controller alloc] initWithNibName:@"About_Controller" bundle:nil];
 	self.tabBarController = [[UITabBarController alloc] init];
 	self.tabBarController.viewControllers = @[viewController1, viewController2, viewController3];
 	self.window.rootViewController = self.tabBarController;

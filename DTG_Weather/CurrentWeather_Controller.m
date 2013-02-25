@@ -12,11 +12,12 @@
 #import "PopupChart_ControllerViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define degreesToRadians( degrees ) ( ( degrees ) / 180.0 * M_PI )
+//#define degreesToRadians( degrees ) ( ( degrees ) / 180.0 * M_PI )
 
 @interface CurrentWeather_Controller ()
 	@property long update_timestamp;
 	@property (strong)NSTimer *timer;
+	@property NSInteger poll_time;
 @end
 
 @implementation CurrentWeather_Controller
@@ -31,6 +32,7 @@
 @synthesize update_label;
 @synthesize timer;
 @synthesize temp_arrow,humid_arrow,pressure_arrow,dew_arrow,wind_arrow,rain_arrow;
+@synthesize poll_time;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -38,7 +40,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 		self.title = @"Current Weather";
-		self.tabBarItem.image = [UIImage imageNamed:@"first"];
+		self.tabBarItem.image = [UIImage imageNamed:@"tab_cloud.png"];
 		[self setCurrent_weather:nil];
 		[self setUpdate_timestamp:-1];
     }
@@ -48,12 +50,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	/*
 	[temp_label setText:@""];
 	[humid_label setText:@""];
 	[pressure_label setText:@""];
 	[dew_label setText:@""];
 	[rain_label setText:@""];
 	[wind_label setText:@""];
+	 */
 	
 	//The gray background
 	CGRect main_frame = [[UIScreen mainScreen] bounds];
@@ -62,45 +67,47 @@
 	[grey_bg setAlpha:0.2];
 	[[self view] insertSubview:grey_bg atIndex:1];
 	
-	/*
-	//Rotate the pins
-	dial_temp_pin.transform = CGAffineTransformMakeRotation(-1.570796327);
-	dial_humid_pin.transform = CGAffineTransformMakeRotation(-1.570796327);
-	dial_pressure_pin.transform = CGAffineTransformMakeRotation(-1.570796327);
-	dial_dew_pin.transform = CGAffineTransformMakeRotation(-1.570796327);
-	dial_rain_pin.transform = CGAffineTransformMakeRotation(-1.570796327);
-	dial_wind_pin.transform = CGAffineTransformMakeRotation(-1.570796327);
-	 */
+	//Fix the iphone 5 view
+	CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+	if (screenSize.height > 480.0f) {
+		CGRect update_f = CGRectMake(16, 462, [update_label frame].size.width, [update_label frame].size.height);
+		[update_label setFrame:update_f];
+	}
 	
-	timer = [NSTimer scheduledTimerWithTimeInterval:60.0 target:self selector:@selector(update_weather) userInfo:nil repeats:YES];
+	//Get the current poll time, set it if it's not there
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	NSInteger pt = [defaults integerForKey:@"POLL_TIME"];
+	if(pt)
+		[self setPoll_time:pt];
+	else{
+		pt = 1;
+		[defaults setInteger:pt forKey:@"POLL_TIME"];
+		[defaults synchronize];
+		[self setPoll_time:pt];
+	}
+
+	[self start_the_timer];
+}
+
+-(void)start_the_timer{
+	if(timer){
+		[timer invalidate];
+	}
+	timer = [NSTimer scheduledTimerWithTimeInterval:([self poll_time]*60) target:self selector:@selector(update_weather) userInfo:nil repeats:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
 	[self update_weather];
-}
-
-/*
--(IBAction)showChart_selected:(id)sender{
-	UIButton *caller = (UIButton *)sender;
-	PopupChart_ControllerViewController *popup_temp = [[PopupChart_ControllerViewController alloc] initWithNibName:@"PopupChart_ControllerViewController" bundle:nil];
-	//Set the chart type
-	if(caller==tempChart)
-		[popup_temp setChartType:CHART_TEMP];
-	else if(caller==humidChart)
-		[popup_temp setChartType:CHART_HUMID];
-	else if(caller==pressureChart)
-		[popup_temp setChartType:CHART_PRESSURE];
-	else if(caller==dewChart)
-		[popup_temp setChartType:CHART_DEW];
-	else if(caller==rainChart)
-		[popup_temp setChartType:CHART_RAIN];
-	else if(caller==windChart)
-		[popup_temp setChartType:CHART_WIND];
 	
-	[self presentViewController:popup_temp animated:YES completion:nil];
+	//Now check whether the poll time has changed since we last looked
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	NSInteger pt = [defaults integerForKey:@"POLL_TIME"];
+	if(pt!=[self poll_time]){
+		//We need to store the new one, invalidate the timer and start it again (with the new time)
+		[self setPoll_time:pt];
+		[self start_the_timer];
+	}
 }
- */
-
 
 -(void)update_weather{
 	long curr_time = [NSDate timeIntervalSinceReferenceDate];
@@ -122,81 +129,9 @@
 				NSString *curr_dew = [NSString stringWithFormat:@"%.1f%%",[temp_weather dew_point]];
 				NSString *curr_rain = [NSString stringWithFormat:@"%.1fmm",[temp_weather rain]];
 				NSString *curr_wind = [NSString stringWithFormat:@"%.0fkts",[temp_weather wind_speed]];
-
-				/*
-				//Calculate the post anim positions
-				float total_dial = 270.0f;
-				
-				//Temperature
-				float temp_per = ([temp_weather temp]+10)/50;
-				temp_per = temp_per * 100;
-				float temp_dial_deg = temp_per*total_dial;
-				temp_dial_deg = temp_dial_deg/100;
-				temp_dial_deg = temp_dial_deg - 135.0f;
-				float temp_dial_rad = degreesToRadians(temp_dial_deg);
-				
-				//Humidity
-				float humid_dial_deg = (float)([temp_weather humidity]*total_dial);
-				humid_dial_deg = humid_dial_deg/100;
-				humid_dial_deg = humid_dial_deg - 135.0f;
-				float humid_dial_rad = degreesToRadians(humid_dial_deg);
-				
-				//Pressure
-				float pres_per = ([temp_weather pressure]-890)/170;
-				pres_per = pres_per * 100;
-				float pres_dial_deg = pres_per*total_dial;
-				pres_dial_deg = pres_dial_deg/100;
-				pres_dial_deg = pres_dial_deg-135.0f;
-				float pres_dial_rad = degreesToRadians(pres_dial_deg);
-				
-				//Dew Point
-				float dew_per = ([temp_weather dew_point]+5)/22;
-				dew_per = dew_per * 100;
-				float dew_dial_deg = dew_per*total_dial;
-				dew_dial_deg = dew_dial_deg/100;
-				dew_dial_deg = dew_dial_deg-135.0f;
-				float dew_dial_rad = degreesToRadians(dew_dial_deg);
-				
-				//Rainfall
-				float rain_per = [temp_weather rain]/318;
-				rain_per = rain_per * 100;
-				float rain_dial_deg = rain_per*total_dial;
-				rain_dial_deg = rain_dial_deg-135.0f;
-				float rain_dial_rad = degreesToRadians(rain_dial_deg);
-				
-				//Wind
-				float wind_per = [temp_weather wind_speed]/50;
-				wind_per = wind_per * 100;
-				float wind_dial_deg = wind_per*total_dial;
-				wind_dial_deg = wind_dial_deg-135.0f;
-				float wind_dial_rad = degreesToRadians(wind_dial_deg);
-				 */
 				
 				dispatch_sync(dispatch_get_main_queue(), ^{
 					[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-					/*
-					//Setup the labels
-					current_weather = temp_weather;
-					update_timestamp = [NSDate timeIntervalSinceReferenceDate];
-					
-					[temp_label setText:curr_temp];
-					[humid_label setText:curr_humid];
-					[pressure_label setText:curr_press];
-					[dew_label setText:curr_dew];
-					[rain_label setText:curr_rain];
-					[wind_label setText:curr_wind];
-					[wind_dir_label setText:curr_wind_dir];
-					[sun_label setText:curr_sun];
-					
-					[UIView animateWithDuration:0.6 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-						dial_temp_pin.transform = CGAffineTransformMakeRotation(temp_dial_rad);
-						dial_humid_pin.transform = CGAffineTransformMakeRotation(humid_dial_rad);
-						dial_pressure_pin.transform = CGAffineTransformMakeRotation(pres_dial_rad);
-						dial_dew_pin.transform = CGAffineTransformMakeRotation(dew_dial_rad);
-						dial_rain_pin.transform = CGAffineTransformMakeRotation(rain_dial_rad);
-						dial_wind_pin.transform = CGAffineTransformMakeRotation(wind_dial_rad);
-					}completion:nil];
-					 */
 					update_timestamp = [NSDate timeIntervalSinceReferenceDate];
 					
 					[temp_label setText:curr_temp];
@@ -206,11 +141,16 @@
 					[rain_label setText:curr_rain];
 					[wind_label setText:curr_wind];
 					
+					//The last update time
 					NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 					NSCalendarUnit unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit| NSWeekCalendarUnit |NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
 					NSDate *date = [NSDate date];
 					NSDateComponents *dateComponents = [calendar components:unitFlags fromDate:date];
-					NSString *update_str = [NSString stringWithFormat:@"Last update: %d:%d",[dateComponents hour],[dateComponents minute]];
+					NSString *update_str;
+					if([dateComponents minute]<10)
+						update_str = [NSString stringWithFormat:@"Last update: %d:0%d",[dateComponents hour],[dateComponents minute]];
+					else
+						update_str = [NSString stringWithFormat:@"Last update: %d:%d",[dateComponents hour],[dateComponents minute]];
 					[update_label setText:update_str];
 					
 					if(current_weather){

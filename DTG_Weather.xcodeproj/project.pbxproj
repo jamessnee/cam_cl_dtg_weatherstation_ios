@@ -19,18 +19,25 @@
 		59A265FF16BAB6D4004FD86A /* CurrentWeather_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A265FE16BAB6D4004FD86A /* CurrentWeather_Controller.m */; };
 		59A2660116BAB6D4004FD86A /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A2660016BAB6D4004FD86A /* first.png */; };
 		59A2660316BAB6D4004FD86A /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A2660216BAB6D4004FD86A /* first@2x.png */; };
-		59A2660616BAB6D4004FD86A /* Charts_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A2660516BAB6D4004FD86A /* Charts_Controller.m */; };
+		59A2660616BAB6D4004FD86A /* About_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A2660516BAB6D4004FD86A /* About_Controller.m */; };
 		59A2660816BAB6D4004FD86A /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A2660716BAB6D4004FD86A /* second.png */; };
 		59A2660A16BAB6D4004FD86A /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A2660916BAB6D4004FD86A /* second@2x.png */; };
 		59A2660D16BAB6D4004FD86A /* CurrentWeather_Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A2660B16BAB6D4004FD86A /* CurrentWeather_Controller.xib */; };
-		59A2661016BAB6D4004FD86A /* Charts_Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A2660E16BAB6D4004FD86A /* Charts_Controller.xib */; };
+		59A2661016BAB6D4004FD86A /* About_Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A2660E16BAB6D4004FD86A /* About_Controller.xib */; };
 		59A2661E16BAB822004FD86A /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A2661D16BAB822004FD86A /* Weather.m */; };
 		59A2662116BAB9DE004FD86A /* DTG_WeatherStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A2662016BAB9DE004FD86A /* DTG_WeatherStation.m */; };
+		59A595D716DBBD9200C3A311 /* thermomater.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A595D616DBBD9200C3A311 /* thermomater.png */; };
+		59A595DF16DBC50B00C3A311 /* tab_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A595DE16DBC50B00C3A311 /* tab_settings.png */; };
+		59A595E516DBC68500C3A311 /* tab_about.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A595E416DBC68500C3A311 /* tab_about.png */; };
+		59A595E716DBC70F00C3A311 /* tab_cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A595E616DBC70F00C3A311 /* tab_cloud.png */; };
 		59AFA25D16D98590000E8EA6 /* bg_clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = 59AFA25C16D98590000E8EA6 /* bg_clouds.png */; };
 		59AFA25F16D98646000E8EA6 /* bg_about.png in Resources */ = {isa = PBXBuildFile; fileRef = 59AFA25E16D98646000E8EA6 /* bg_about.png */; };
 		59AFA26116D98A9F000E8EA6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59AFA26016D98A9F000E8EA6 /* MapKit.framework */; };
 		59AFA26316DA5EF8000E8EA6 /* arrow_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 59AFA26216DA5EF8000E8EA6 /* arrow_up.png */; };
 		59AFA26516DA5F75000E8EA6 /* arrow_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 59AFA26416DA5F75000E8EA6 /* arrow_down.png */; };
+		59C4218016DA945500491C53 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C4217F16DA945500491C53 /* CoreLocation.framework */; };
+		59C4218416DA972D00491C53 /* Settings_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C4218216DA972D00491C53 /* Settings_Controller.m */; };
+		59C4218516DA972D00491C53 /* Settings_Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C4218316DA972D00491C53 /* Settings_Controller.xib */; };
 		59DE696F16BD52B6005060F7 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 59DE696E16BD52B6005060F7 /* background.png */; };
 		59DE697716BD5715005060F7 /* dial_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 59DE697616BD5715005060F7 /* dial_bg.png */; };
 		59DE697916BD6033005060F7 /* dial_colours.png in Resources */ = {isa = PBXBuildFile; fileRef = 59DE697816BD6033005060F7 /* dial_colours.png */; };
@@ -60,22 +67,30 @@
 		59A265FE16BAB6D4004FD86A /* CurrentWeather_Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentWeather_Controller.m; sourceTree = "<group>"; };
 		59A2660016BAB6D4004FD86A /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		59A2660216BAB6D4004FD86A /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		59A2660416BAB6D4004FD86A /* Charts_Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Charts_Controller.h; sourceTree = "<group>"; };
-		59A2660516BAB6D4004FD86A /* Charts_Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Charts_Controller.m; sourceTree = "<group>"; };
+		59A2660416BAB6D4004FD86A /* About_Controller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = About_Controller.h; sourceTree = "<group>"; };
+		59A2660516BAB6D4004FD86A /* About_Controller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = About_Controller.m; sourceTree = "<group>"; };
 		59A2660716BAB6D4004FD86A /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		59A2660916BAB6D4004FD86A /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		59A2660C16BAB6D4004FD86A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CurrentWeather_Controller.xib; sourceTree = "<group>"; };
-		59A2660F16BAB6D4004FD86A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Charts_Controller.xib; sourceTree = "<group>"; };
+		59A2660F16BAB6D4004FD86A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/About_Controller.xib; sourceTree = "<group>"; };
 		59A2661A16BAB75B004FD86A /* WeatherStation_Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherStation_Connection.h; sourceTree = "<group>"; };
 		59A2661C16BAB822004FD86A /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
 		59A2661D16BAB822004FD86A /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 		59A2661F16BAB9DE004FD86A /* DTG_WeatherStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTG_WeatherStation.h; sourceTree = "<group>"; };
 		59A2662016BAB9DE004FD86A /* DTG_WeatherStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTG_WeatherStation.m; sourceTree = "<group>"; };
+		59A595D616DBBD9200C3A311 /* thermomater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thermomater.png; sourceTree = "<group>"; };
+		59A595DE16DBC50B00C3A311 /* tab_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_settings.png; sourceTree = "<group>"; };
+		59A595E416DBC68500C3A311 /* tab_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_about.png; sourceTree = "<group>"; };
+		59A595E616DBC70F00C3A311 /* tab_cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_cloud.png; sourceTree = "<group>"; };
 		59AFA25C16D98590000E8EA6 /* bg_clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_clouds.png; sourceTree = "<group>"; };
 		59AFA25E16D98646000E8EA6 /* bg_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_about.png; sourceTree = "<group>"; };
 		59AFA26016D98A9F000E8EA6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		59AFA26216DA5EF8000E8EA6 /* arrow_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_up.png; sourceTree = "<group>"; };
 		59AFA26416DA5F75000E8EA6 /* arrow_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_down.png; sourceTree = "<group>"; };
+		59C4217F16DA945500491C53 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		59C4218116DA972D00491C53 /* Settings_Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings_Controller.h; sourceTree = "<group>"; };
+		59C4218216DA972D00491C53 /* Settings_Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings_Controller.m; sourceTree = "<group>"; };
+		59C4218316DA972D00491C53 /* Settings_Controller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Settings_Controller.xib; sourceTree = "<group>"; };
 		59DE696E16BD52B6005060F7 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		59DE697616BD5715005060F7 /* dial_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dial_bg.png; sourceTree = "<group>"; };
 		59DE697816BD6033005060F7 /* dial_colours.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dial_colours.png; sourceTree = "<group>"; };
@@ -167,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59C4218016DA945500491C53 /* CoreLocation.framework in Frameworks */,
 				59AFA26116D98A9F000E8EA6 /* MapKit.framework in Frameworks */,
 				59DE698716BD7EC7005060F7 /* QuartzCore.framework in Frameworks */,
 				59A265E616BAB6D4004FD86A /* UIKit.framework in Frameworks */,
@@ -199,6 +215,7 @@
 		59A265E416BAB6D4004FD86A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59C4217F16DA945500491C53 /* CoreLocation.framework */,
 				59AFA26016D98A9F000E8EA6 /* MapKit.framework */,
 				59DE698616BD7EC7005060F7 /* QuartzCore.framework */,
 				59A265E516BAB6D4004FD86A /* UIKit.framework */,
@@ -261,8 +278,9 @@
 			isa = PBXGroup;
 			children = (
 				59A2660B16BAB6D4004FD86A /* CurrentWeather_Controller.xib */,
-				59A2660E16BAB6D4004FD86A /* Charts_Controller.xib */,
+				59A2660E16BAB6D4004FD86A /* About_Controller.xib */,
 				59EF6C0A16BDDC57003A5129 /* PopupChart_ControllerViewController.xib */,
+				59C4218316DA972D00491C53 /* Settings_Controller.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -270,6 +288,10 @@
 		59DE696D16BD52AB005060F7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				59A595E616DBC70F00C3A311 /* tab_cloud.png */,
+				59A595E416DBC68500C3A311 /* tab_about.png */,
+				59A595DE16DBC50B00C3A311 /* tab_settings.png */,
+				59A595D616DBBD9200C3A311 /* thermomater.png */,
 				59AFA25E16D98646000E8EA6 /* bg_about.png */,
 				59AFA25C16D98590000E8EA6 /* bg_clouds.png */,
 				59DE698116BD6B7B005060F7 /* title_bg.png */,
@@ -292,10 +314,12 @@
 			children = (
 				59A265FD16BAB6D4004FD86A /* CurrentWeather_Controller.h */,
 				59A265FE16BAB6D4004FD86A /* CurrentWeather_Controller.m */,
-				59A2660416BAB6D4004FD86A /* Charts_Controller.h */,
-				59A2660516BAB6D4004FD86A /* Charts_Controller.m */,
+				59A2660416BAB6D4004FD86A /* About_Controller.h */,
+				59A2660516BAB6D4004FD86A /* About_Controller.m */,
 				59EF6C0816BDDC57003A5129 /* PopupChart_ControllerViewController.h */,
 				59EF6C0916BDDC57003A5129 /* PopupChart_ControllerViewController.m */,
+				59C4218116DA972D00491C53 /* Settings_Controller.h */,
+				59C4218216DA972D00491C53 /* Settings_Controller.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -450,7 +474,7 @@
 				59A2660816BAB6D4004FD86A /* second.png in Resources */,
 				59A2660A16BAB6D4004FD86A /* second@2x.png in Resources */,
 				59A2660D16BAB6D4004FD86A /* CurrentWeather_Controller.xib in Resources */,
-				59A2661016BAB6D4004FD86A /* Charts_Controller.xib in Resources */,
+				59A2661016BAB6D4004FD86A /* About_Controller.xib in Resources */,
 				59DE696F16BD52B6005060F7 /* background.png in Resources */,
 				59DE697716BD5715005060F7 /* dial_bg.png in Resources */,
 				59DE697916BD6033005060F7 /* dial_colours.png in Resources */,
@@ -461,6 +485,11 @@
 				59AFA25F16D98646000E8EA6 /* bg_about.png in Resources */,
 				59AFA26316DA5EF8000E8EA6 /* arrow_up.png in Resources */,
 				59AFA26516DA5F75000E8EA6 /* arrow_down.png in Resources */,
+				59C4218516DA972D00491C53 /* Settings_Controller.xib in Resources */,
+				59A595D716DBBD9200C3A311 /* thermomater.png in Resources */,
+				59A595DF16DBC50B00C3A311 /* tab_settings.png in Resources */,
+				59A595E516DBC68500C3A311 /* tab_about.png in Resources */,
+				59A595E716DBC70F00C3A311 /* tab_cloud.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,10 +503,11 @@
 				59A265F216BAB6D4004FD86A /* main.m in Sources */,
 				59A265F616BAB6D4004FD86A /* AppDelegate.m in Sources */,
 				59A265FF16BAB6D4004FD86A /* CurrentWeather_Controller.m in Sources */,
-				59A2660616BAB6D4004FD86A /* Charts_Controller.m in Sources */,
+				59A2660616BAB6D4004FD86A /* About_Controller.m in Sources */,
 				59A2661E16BAB822004FD86A /* Weather.m in Sources */,
 				59A2662116BAB9DE004FD86A /* DTG_WeatherStation.m in Sources */,
 				59EF6C0B16BDDC57003A5129 /* PopupChart_ControllerViewController.m in Sources */,
+				59C4218416DA972D00491C53 /* Settings_Controller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,12 +530,12 @@
 			name = CurrentWeather_Controller.xib;
 			sourceTree = "<group>";
 		};
-		59A2660E16BAB6D4004FD86A /* Charts_Controller.xib */ = {
+		59A2660E16BAB6D4004FD86A /* About_Controller.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				59A2660F16BAB6D4004FD86A /* en */,
 			);
-			name = Charts_Controller.xib;
+			name = About_Controller.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

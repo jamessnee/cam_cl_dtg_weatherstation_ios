@@ -94,7 +94,6 @@
 	error = nil;
 	NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"  +" options:NSRegularExpressionCaseInsensitive error:&error];
 	weather_string = [regex stringByReplacingMatchesInString:weather_string options:0 range:NSMakeRange(0, [weather_string length]) withTemplate:@" "];
-	NSLog(@"%@",weather_string);
 	
 	NSMutableArray *weathers = [[NSMutableArray alloc] init];
 	NSArray *lines = [weather_string componentsSeparatedByString:@"\n"];

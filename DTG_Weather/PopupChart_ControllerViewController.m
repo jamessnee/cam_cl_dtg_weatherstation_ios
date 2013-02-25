@@ -70,7 +70,6 @@ float max_y;
 		}
 		dispatch_sync(dispatch_get_main_queue(), ^{
 			max_y = max_y + (max_y/4);
-			NSLog(@"%f",max_y);
 			data = temp_data;
 			[self initPlot];
 		});

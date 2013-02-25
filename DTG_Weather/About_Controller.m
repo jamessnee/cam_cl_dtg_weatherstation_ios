@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 James Snee. All rights reserved.
 //
 
-#import "Charts_Controller.h"
+#import "About_Controller.h"
 #import "DTG_WeatherStation.h"
 #import "Weather.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface Charts_Controller ()
+@interface About_Controller ()
 	@property(strong)NSArray *temperatures;
 @end
 
-@implementation Charts_Controller
+@implementation About_Controller
 
 float max_y;
 
@@ -23,7 +23,7 @@ float max_y;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 		self.title = @"About";
-		self.tabBarItem.image = [UIImage imageNamed:@"second"];
+		self.tabBarItem.image = [UIImage imageNamed:@"tab_about.png"];
     }
     return self;
 }

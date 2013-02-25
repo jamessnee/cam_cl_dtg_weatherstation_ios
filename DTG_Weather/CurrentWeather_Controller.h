@@ -30,5 +30,6 @@
 @property(strong)Weather *current_weather;
 
 -(void)update_weather;
+-(void)start_the_timer;
 
 @end

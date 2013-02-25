@@ -10,7 +10,7 @@
 #import "CorePlot-CocoaTouch.h"
 #import <MapKit/MapKit.h>
 
-@interface Charts_Controller : UIViewController <MKMapViewDelegate>
+@interface About_Controller : UIViewController <MKMapViewDelegate>
 
 @property(strong)IBOutlet MKMapView *mapView;
 
