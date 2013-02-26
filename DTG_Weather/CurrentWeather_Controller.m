@@ -9,10 +9,7 @@
 #import "CurrentWeather_Controller.h"
 #import "DTG_WeatherStation.h"
 #import "Weather.h"
-#import "PopupChart_ControllerViewController.h"
 #import <QuartzCore/QuartzCore.h>
-
-//#define degreesToRadians( degrees ) ( ( degrees ) / 180.0 * M_PI )
 
 @interface CurrentWeather_Controller ()
 	@property long update_timestamp;

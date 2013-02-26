@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CorePlot-CocoaTouch.h"
 #import <MapKit/MapKit.h>
 
 @interface About_Controller : UIViewController <MKMapViewDelegate>
