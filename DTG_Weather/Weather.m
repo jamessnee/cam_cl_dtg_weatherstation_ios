@@ -9,6 +9,6 @@
 #import "Weather.h"
 
 @implementation Weather
-@synthesize time,temp,humidity,dew_point,pressure,wind_speed,wind_direction,sun_hours,rain,max_wind_speed;
+@synthesize time,temp,humidity,dew_point,pressure,wind_speed,wind_direction,sun_hours,rain,max_wind_speed,summary;
 
 @end

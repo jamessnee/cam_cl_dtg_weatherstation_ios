@@ -74,6 +74,13 @@
 	[weather setRain:[rain_str floatValue]];
 //	NSLog(@"%f",[weather rain]);
 	
+	//Summary
+	NSString *summary_str = [weather_comps objectAtIndex:10];
+	summary_str = [[summary_str componentsSeparatedByString:@":"] objectAtIndex:1];
+	[weather setSummary:summary_str];
+	[weather setSummary:@"rain,mild,windy"];
+	NSLog(@"%@",[weather summary]);
+	
 	return weather;
 }
 

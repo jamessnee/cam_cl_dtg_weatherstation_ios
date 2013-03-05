@@ -18,6 +18,7 @@
 @end
 
 @implementation CurrentWeather_Controller
+@synthesize background;
 @synthesize temp_label;
 @synthesize humid_label;
 @synthesize pressure_label;
@@ -120,10 +121,10 @@
 			
 			if(temp_weather!=nil){
 				//Setup all of the text and radians
-				NSString *curr_temp = [NSString stringWithFormat:@"%.01fC",[temp_weather temp]];
+				NSString *curr_temp = [NSString stringWithFormat:@"%.01f℃",[temp_weather temp]];
 				NSString *curr_humid = [NSString stringWithFormat:@"%d%%",[temp_weather humidity]];
 				NSString *curr_press = [NSString stringWithFormat:@"%.f mBar",[temp_weather pressure]];
-				NSString *curr_dew = [NSString stringWithFormat:@"%.1f%%",[temp_weather dew_point]];
+				NSString *curr_dew = [NSString stringWithFormat:@"%.1f℃",[temp_weather dew_point]];
 				NSString *curr_rain = [NSString stringWithFormat:@"%.1fmm",[temp_weather rain]];
 				NSString *curr_wind = [NSString stringWithFormat:@"%.0fkts",[temp_weather wind_speed]];
 				
@@ -149,6 +150,12 @@
 					else
 						update_str = [NSString stringWithFormat:@"Last update: %d:%d",[dateComponents hour],[dateComponents minute]];
 					[update_label setText:update_str];
+					
+					//Change the background image based on the current weather
+					if([[temp_weather summary] rangeOfString:@"sunny"].location != NSNotFound)
+						[[self background] setImage:[UIImage imageNamed:@"bg_clouds.png"]];
+					else
+						[[self background] setImage:[UIImage imageNamed:@"rain.png"]];
 					
 					if(current_weather){
 						if([current_weather temp]>[temp_weather temp])

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		597B846916DC2C3F0062AC2E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 597B846816DC2C3F0062AC2E /* icon.png */; };
 		597B846B16DC2C420062AC2E /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 597B846A16DC2C420062AC2E /* icon@2x.png */; };
+		598B27B016E63DE10073A7FF /* rain.png in Resources */ = {isa = PBXBuildFile; fileRef = 598B27AF16E63DE10073A7FF /* rain.png */; };
 		59A265E616BAB6D4004FD86A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A265E516BAB6D4004FD86A /* UIKit.framework */; };
 		59A265E816BAB6D4004FD86A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A265E716BAB6D4004FD86A /* Foundation.framework */; };
 		59A265EA16BAB6D4004FD86A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A265E916BAB6D4004FD86A /* CoreGraphics.framework */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		597B846816DC2C3F0062AC2E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		597B846A16DC2C420062AC2E /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		598B27AF16E63DE10073A7FF /* rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rain.png; sourceTree = "<group>"; };
 		59A265E216BAB6D4004FD86A /* DTG Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DTG Weather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A265E516BAB6D4004FD86A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		59A265E716BAB6D4004FD86A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -193,6 +195,7 @@
 		59DE696D16BD52AB005060F7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				598B27AF16E63DE10073A7FF /* rain.png */,
 				59A595E616DBC70F00C3A311 /* tab_cloud.png */,
 				59A595E416DBC68500C3A311 /* tab_about.png */,
 				59A595DE16DBC50B00C3A311 /* tab_settings.png */,
@@ -285,6 +288,7 @@
 				59AA197016DD1299004C782F /* Default-568h@2x.png in Resources */,
 				59AA197416DD1304004C782F /* Default.png in Resources */,
 				59AA197616DD1372004C782F /* Default@2x.png in Resources */,
+				598B27B016E63DE10073A7FF /* rain.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

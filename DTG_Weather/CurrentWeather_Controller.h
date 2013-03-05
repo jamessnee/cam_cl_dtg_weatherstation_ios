@@ -13,6 +13,7 @@
 @interface CurrentWeather_Controller : UIViewController
 
 //UI
+@property(strong)IBOutlet UIImageView *background;
 @property(strong)IBOutlet UILabel *temp_label;
 @property(strong)IBOutlet UILabel *humid_label;
 @property(strong)IBOutlet UILabel *pressure_label;

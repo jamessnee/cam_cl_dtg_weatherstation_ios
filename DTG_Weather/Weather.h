@@ -20,5 +20,6 @@
 @property float sun_hours;
 @property float rain;
 @property int max_wind_speed;
+@property (strong) NSString *summary;
 
 @end

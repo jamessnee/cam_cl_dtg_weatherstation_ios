@@ -88,7 +88,7 @@
 					<object class="IBUILabel" id="571985452">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{10, 71}, {140, 65}}</string>
+						<string key="NSFrame">{{20, 71}, {140, 65}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="226805000"/>
@@ -103,15 +103,15 @@
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<int key="IBUITextAlignment">1</int>
-						<object class="IBUIFontDescription" key="IBUIFontDescription" id="744344372">
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="1031368300">
 							<string key="name">HelveticaNeue-Light</string>
 							<string key="family">Helvetica Neue</string>
 							<int key="traits">0</int>
-							<double key="pointSize">50</double>
+							<double key="pointSize">45</double>
 						</object>
-						<object class="NSFont" key="IBUIFont" id="141897069">
+						<object class="NSFont" key="IBUIFont" id="204598150">
 							<string key="NSName">HelveticaNeue-Medium</string>
-							<double key="NSSize">50</double>
+							<double key="NSSize">45</double>
 							<int key="NSfFlags">16</int>
 						</object>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
@@ -141,7 +141,7 @@
 					<object class="IBUILabel" id="226805000">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{158, 71}, {142, 65}}</string>
+						<string key="NSFrame">{{163, 71}, {142, 65}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="689979626"/>
@@ -156,8 +156,8 @@
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<int key="IBUITextAlignment">1</int>
-						<reference key="IBUIFontDescription" ref="744344372"/>
-						<reference key="IBUIFont" ref="141897069"/>
+						<reference key="IBUIFontDescription" ref="1031368300"/>
+						<reference key="IBUIFont" ref="204598150"/>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
 					<object class="IBUILabel" id="689979626">
@@ -591,6 +591,14 @@
 					</object>
 					<int key="connectionID">166</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">background</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="725130902"/>
+					</object>
+					<int key="connectionID">472</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -622,8 +630,8 @@
 							<reference ref="657061580"/>
 							<reference ref="161386900"/>
 							<reference ref="720579815"/>
-							<reference ref="571985452"/>
 							<reference ref="725130902"/>
+							<reference ref="571985452"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -789,7 +797,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">471</int>
+			<int key="maxID">472</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -797,6 +805,7 @@
 					<string key="className">CurrentWeather_Controller</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="background">UIImageView</string>
 						<string key="dew_arrow">UIImageView</string>
 						<string key="dew_label">UILabel</string>
 						<string key="humid_arrow">UIImageView</string>
@@ -812,6 +821,10 @@
 						<string key="wind_label">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="background">
+							<string key="name">background</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="dew_arrow">
 							<string key="name">dew_arrow</string>
 							<string key="candidateClassName">UIImageView</string>
