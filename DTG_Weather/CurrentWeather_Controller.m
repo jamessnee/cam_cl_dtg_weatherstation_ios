@@ -109,8 +109,8 @@
 
 -(void)update_weather{
 	long curr_time = [NSDate timeIntervalSinceReferenceDate];
-	if(update_timestamp==-1||(curr_time-update_timestamp)>30){
-	//if(YES){
+	//if(update_timestamp==-1||(curr_time-update_timestamp)>30){
+	if(YES){
 		
 		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 		
@@ -152,10 +152,23 @@
 					[update_label setText:update_str];
 					
 					//Change the background image based on the current weather
-					if([[temp_weather summary] rangeOfString:@"sunny"].location != NSNotFound)
-						[[self background] setImage:[UIImage imageNamed:@"bg_clouds.png"]];
-					else
-						[[self background] setImage:[UIImage imageNamed:@"rain.png"]];
+					NSArray *summary_comps = [[temp_weather summary] componentsSeparatedByString:@","];
+					if([summary_comps count]<4){
+						//Cold, rainy or normal
+						if([[summary_comps objectAtIndex:0] rangeOfString:@"rainy"].location!=NSNotFound){
+							[[self background] setImage:[UIImage imageNamed:@"rain.png"]];
+						}
+						else if([[summary_comps objectAtIndex:1] rangeOfString:@"very cold"].location!=NSNotFound ||
+								[[summary_comps objectAtIndex:1] rangeOfString:@"freezing cold"].location!=NSNotFound){
+							[[self background] setImage:[UIImage imageNamed:@"cold.png"]];
+						}
+						else{
+							[[self background] setImage:[UIImage imageNamed:@"bg_clouds.png"]];
+						}
+					}else{
+						//Sunny
+						[[self background] setImage:[UIImage imageNamed:@"bg_about.png"]];
+					}
 					
 					if(current_weather){
 						if([current_weather temp]>[temp_weather temp])
