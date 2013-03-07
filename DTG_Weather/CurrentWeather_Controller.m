@@ -82,17 +82,37 @@
 		[defaults synchronize];
 		[self setPoll_time:pt];
 	}
-
-	[self start_the_timer];
 	
+	if(![self check_reachability]){
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Connection" message:@"I can't retrieve the weather data. Please check your network settings." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		[alert show];
+	}
+	[self start_the_timer];
+}
+
+-(BOOL)check_reachability{
 	Reachability *reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+	NetworkStatus netStatus = [reach currentReachabilityStatus];
+	if(netStatus == NotReachable)
+		return NO;
+	else
+		return YES;
+	/*
 	reach.unreachableBlock = ^(Reachability *reach){
 		dispatch_async(dispatch_get_main_queue(), ^{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Connection" message:@"I can't retrieve the weather data. Please check your network settings" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 			[alert show];
+			[self setReachable:NO];
+        });
+	};
+	reach.reachableBlock = ^(Reachability *reach){
+		NSLog(@"REACHABLE AGAIN");
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self setReachable:YES];
         });
 	};
 	[reach startNotifier];
+	 */
 }
 
 -(void)start_the_timer{
@@ -117,8 +137,9 @@
 
 -(void)update_weather{
 	long curr_time = [NSDate timeIntervalSinceReferenceDate];
-	//if(update_timestamp==-1||(curr_time-update_timestamp)>30){
-	if(YES){
+	if((update_timestamp==-1||(curr_time-update_timestamp)>30)&&[self check_reachability]){
+	//if(YES){
+	//if([self check_reachability]){
 		
 		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 		

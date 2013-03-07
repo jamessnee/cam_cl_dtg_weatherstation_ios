@@ -31,6 +31,7 @@
 @property(strong)Weather *current_weather;
 
 -(void)update_weather;
+-(BOOL)check_reachability;
 -(void)start_the_timer;
 
 @end
