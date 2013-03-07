@@ -10,6 +10,7 @@
 #import "DTG_WeatherStation.h"
 #import "Weather.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Reachability.h"
 
 @interface CurrentWeather_Controller ()
 	@property long update_timestamp;
@@ -49,14 +50,12 @@
 {
     [super viewDidLoad];
 	
-	/*
-	[temp_label setText:@""];
-	[humid_label setText:@""];
-	[pressure_label setText:@""];
-	[dew_label setText:@""];
-	[rain_label setText:@""];
-	[wind_label setText:@""];
-	 */
+	[temp_label setText:@"-"];
+	[humid_label setText:@"-"];
+	[pressure_label setText:@"-"];
+	[dew_label setText:@"-"];
+	[rain_label setText:@"-"];
+	[wind_label setText:@"-"];
 	
 	//The gray background
 	CGRect main_frame = [[UIScreen mainScreen] bounds];
@@ -85,6 +84,15 @@
 	}
 
 	[self start_the_timer];
+	
+	Reachability *reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+	reach.unreachableBlock = ^(Reachability *reach){
+		dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Connection" message:@"I can't retrieve the weather data. Please check your network settings" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+			[alert show];
+        });
+	};
+	[reach startNotifier];
 }
 
 -(void)start_the_timer{
