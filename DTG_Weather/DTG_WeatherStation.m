@@ -21,6 +21,10 @@
 
 	NSArray *weather_comps = [weather_string componentsSeparatedByString:@"\n"];
 //	NSLog(@"%@",[weather_comps description]);
+
+	//Check that we actually have some weather data.
+	if([weather_comps count]<2)
+		return nil;
 	
 	Weather *weather = [[Weather alloc] init];
 	
