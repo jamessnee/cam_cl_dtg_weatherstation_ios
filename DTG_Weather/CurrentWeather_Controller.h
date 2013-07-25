@@ -17,6 +17,7 @@
 @property(strong)IBOutlet UILabel *temp_label;
 @property(strong)IBOutlet UILabel *humid_label;
 @property(strong)IBOutlet UILabel *pressure_label;
+@property(strong)IBOutlet UILabel *dew_sun_description;
 @property(strong)IBOutlet UILabel *dew_label;
 @property(strong)IBOutlet UILabel *rain_label;
 @property(strong)IBOutlet UILabel *wind_label;
@@ -30,8 +31,9 @@
 
 @property(strong)Weather *current_weather;
 
+-(void)invalidate_weather;
 -(void)update_weather;
--(BOOL)check_reachability;
+-(BOOL)check_reachability:(NSString *)url;
 -(void)start_the_timer;
 
 @end

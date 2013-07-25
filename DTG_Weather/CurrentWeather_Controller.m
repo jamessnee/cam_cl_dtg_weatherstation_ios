@@ -10,7 +10,8 @@
 #import "DTG_WeatherStation.h"
 #import "Weather.h"
 #import <QuartzCore/QuartzCore.h>
-#import "Reachability.h"
+
+#define WS_URL @"http://www.cl.cam.ac.uk/research/dtg/weather/"
 
 @interface CurrentWeather_Controller ()
 	@property long update_timestamp;
@@ -83,36 +84,21 @@
 		[self setPoll_time:pt];
 	}
 	
-	if(![self check_reachability]){
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Connection" message:@"I can't retrieve the weather data. Please check your network settings." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	if(![self check_reachability:WS_URL]){
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection" message:@"I cannot talk to the weather station. Please check your network settings, or try back later." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 		[alert show];
 	}
 	[self start_the_timer];
 }
 
--(BOOL)check_reachability{
-	Reachability *reach = [Reachability reachabilityWithHostname:@"www.google.com"];
-	NetworkStatus netStatus = [reach currentReachabilityStatus];
-	if(netStatus == NotReachable)
+-(BOOL)check_reachability:(NSString *)url{
+	NSError *error;
+	[NSString stringWithContentsOfURL:[NSURL URLWithString:WS_URL] encoding:NSUTF8StringEncoding error:&error];
+	if(error) {
 		return NO;
-	else
+	} else {
 		return YES;
-	/*
-	reach.unreachableBlock = ^(Reachability *reach){
-		dispatch_async(dispatch_get_main_queue(), ^{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Connection" message:@"I can't retrieve the weather data. Please check your network settings" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-			[alert show];
-			[self setReachable:NO];
-        });
-	};
-	reach.reachableBlock = ^(Reachability *reach){
-		NSLog(@"REACHABLE AGAIN");
-		dispatch_async(dispatch_get_main_queue(), ^{
-			[self setReachable:YES];
-        });
-	};
-	[reach startNotifier];
-	 */
+	}
 }
 
 -(void)start_the_timer{
@@ -135,9 +121,13 @@
 	}
 }
 
+-(void)invalidate_weather {
+	[self setUpdate_timestamp:-1];
+}
+
 -(void)update_weather{
 	long curr_time = [NSDate timeIntervalSinceReferenceDate];
-	if((update_timestamp==-1||(curr_time-update_timestamp)>30)&&[self check_reachability]){
+	if((update_timestamp==-1||(curr_time-update_timestamp)>30)&&[self check_reachability:WS_URL]){
 	//if(YES){
 	//if([self check_reachability]){
 		
@@ -154,6 +144,7 @@
 				NSString *curr_humid = [NSString stringWithFormat:@"%d%%",[temp_weather humidity]];
 				NSString *curr_press = [NSString stringWithFormat:@"%.f mBar",[temp_weather pressure]];
 				NSString *curr_dew = [NSString stringWithFormat:@"%.1f℃",[temp_weather dew_point]];
+				NSString *curr_sun = [NSString stringWithFormat:@"%.1fh",[temp_weather sun_hours]];
 				NSString *curr_rain = [NSString stringWithFormat:@"%.1fmm",[temp_weather rain]];
 				NSString *curr_wind = [NSString stringWithFormat:@"%.0fkts",[temp_weather wind_speed]];
 				
@@ -161,10 +152,22 @@
 					[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 					update_timestamp = [NSDate timeIntervalSinceReferenceDate];
 					
+					//Find out whether we should show dew point or sun
+					NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+					int show_sun = [defaults integerForKey:@"SHOW_SUN"];
+					
 					[temp_label setText:curr_temp];
 					[humid_label setText:curr_humid];
 					[pressure_label setText:curr_press];
-					[dew_label setText:curr_dew];
+					
+					if(show_sun == 0){
+						[[self dew_sun_description] setText:@"Dew Pt"];
+						[dew_label setText:curr_dew];
+					} else {
+						[[self dew_sun_description] setText:@"Sunshine"];
+						[dew_label setText:curr_sun];
+					}
+					
 					[rain_label setText:curr_rain];
 					[wind_label setText:curr_wind];
 					
@@ -215,10 +218,17 @@
 						else if([current_weather pressure]<[temp_weather pressure])
 							[pressure_arrow setImage:[UIImage imageNamed:@"arrow_up.png"]];
 						
-						if([current_weather dew_point]>[temp_weather dew_point])
-							[dew_arrow setImage:[UIImage imageNamed:@"arrow_down.png"]];
-						else if([current_weather dew_point]<[temp_weather dew_point])
-							[dew_arrow setImage:[UIImage imageNamed:@"arrow_up.png"]];
+						if(show_sun == 0){
+							if([current_weather dew_point]>[temp_weather dew_point])
+								[dew_arrow setImage:[UIImage imageNamed:@"arrow_down.png"]];
+							else if([current_weather dew_point]<[temp_weather dew_point])
+								[dew_arrow setImage:[UIImage imageNamed:@"arrow_up.png"]];
+						} else {
+							if([current_weather sun_hours]>[temp_weather sun_hours])
+								[dew_arrow setImage:[UIImage imageNamed:@"arrow_down.png"]];
+							else if([current_weather sun_hours]<[temp_weather sun_hours])
+								[dew_arrow setImage:[UIImage imageNamed:@"arrow_up.png"]];
+						}
 						
 						if([current_weather rain]>[temp_weather rain])
 							[rain_arrow setImage:[UIImage imageNamed:@"arrow_down.png"]];

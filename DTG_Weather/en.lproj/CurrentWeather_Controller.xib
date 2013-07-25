@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1552</int>
-		<string key="IBDocument.SystemVersion">12C60</string>
+		<string key="IBDocument.SystemVersion">12E55</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187.34</string>
-		<string key="IBDocument.HIToolboxVersion">625.00</string>
+		<string key="IBDocument.AppKitVersion">1187.39</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">2083</string>
@@ -185,7 +185,7 @@
 					<object class="IBUILabel" id="833929257">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{10, 198}, {140, 38}}</string>
+						<string key="NSFrame">{{0, 198}, {160, 38}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="812723948"/>
@@ -313,7 +313,7 @@
 					<object class="IBUILabel" id="404418355">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{174, 152}, {110, 38}}</string>
+						<string key="NSFrame">{{159, 152}, {131, 39}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="291417951"/>
@@ -323,7 +323,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Dew Pt.</string>
+						<string key="IBUIText">Dew Pt</string>
 						<reference key="IBUITextColor" ref="627941719"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
@@ -599,6 +599,14 @@
 					</object>
 					<int key="connectionID">472</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">dew_sun_description</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="404418355"/>
+					</object>
+					<int key="connectionID">473</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -797,7 +805,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">472</int>
+			<int key="maxID">473</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -808,6 +816,7 @@
 						<string key="background">UIImageView</string>
 						<string key="dew_arrow">UIImageView</string>
 						<string key="dew_label">UILabel</string>
+						<string key="dew_sun_description">UILabel</string>
 						<string key="humid_arrow">UIImageView</string>
 						<string key="humid_label">UILabel</string>
 						<string key="pressure_arrow">UIImageView</string>
@@ -831,6 +840,10 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="dew_label">
 							<string key="name">dew_label</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="dew_sun_description">
+							<string key="name">dew_sun_description</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="humid_arrow">
