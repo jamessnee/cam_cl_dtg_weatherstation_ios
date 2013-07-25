@@ -12,6 +12,8 @@
 @interface About_Controller : UIViewController <MKMapViewDelegate>
 
 @property(strong)IBOutlet MKMapView *mapView;
+@property(strong)IBOutlet UIScrollView *scrollView;
+@property(strong)IBOutlet UIView *content;
 
 -(IBAction)dtg_site_clicked:(id)sender;
 

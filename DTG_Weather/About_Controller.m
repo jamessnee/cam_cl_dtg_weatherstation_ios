@@ -32,6 +32,9 @@ float max_y;
 {
     [super viewDidLoad];
 	
+	[[self scrollView] addSubview:[self content]];
+	[[self scrollView] setContentSize:[[self content] frame].size];
+	
 	//The gray background
 	CGRect main_frame = [[UIScreen mainScreen] bounds];
 	UIView *grey_bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, main_frame.size.width, main_frame.size.height)];
