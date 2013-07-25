@@ -12,6 +12,8 @@
 		5928B52017A167C600B68068 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5928B51F17A167C600B68068 /* Default.png */; };
 		5928B52217A167C900B68068 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5928B52117A167C900B68068 /* Default@2x.png */; };
 		5928B52417A167CB00B68068 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5928B52317A167CB00B68068 /* Default-568h@2x.png */; };
+		5928B52817A170F500B68068 /* Historical_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 5928B52617A170F500B68068 /* Historical_Controller.m */; };
+		5928B52917A170F500B68068 /* Historical_Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5928B52717A170F500B68068 /* Historical_Controller.xib */; };
 		597B846916DC2C3F0062AC2E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 597B846816DC2C3F0062AC2E /* icon.png */; };
 		597B846B16DC2C420062AC2E /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 597B846A16DC2C420062AC2E /* icon@2x.png */; };
 		598B27B016E63DE10073A7FF /* rain.png in Resources */ = {isa = PBXBuildFile; fileRef = 598B27AF16E63DE10073A7FF /* rain.png */; };
@@ -48,6 +50,9 @@
 		5928B51F17A167C600B68068 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5928B52117A167C900B68068 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		5928B52317A167CB00B68068 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5928B52517A170F500B68068 /* Historical_Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Historical_Controller.h; sourceTree = "<group>"; };
+		5928B52617A170F500B68068 /* Historical_Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Historical_Controller.m; sourceTree = "<group>"; };
+		5928B52717A170F500B68068 /* Historical_Controller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Historical_Controller.xib; sourceTree = "<group>"; };
 		597B846816DC2C3F0062AC2E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		597B846A16DC2C420062AC2E /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		598B27AF16E63DE10073A7FF /* rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rain.png; sourceTree = "<group>"; };
@@ -194,6 +199,7 @@
 				59A2660E16BAB6D4004FD86A /* About_Controller.xib */,
 				59EF6C0A16BDDC57003A5129 /* PopupChart_ControllerViewController.xib */,
 				59C4218316DA972D00491C53 /* Settings_Controller.xib */,
+				5928B52717A170F500B68068 /* Historical_Controller.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -223,6 +229,8 @@
 				59A2660516BAB6D4004FD86A /* About_Controller.m */,
 				59C4218116DA972D00491C53 /* Settings_Controller.h */,
 				59C4218216DA972D00491C53 /* Settings_Controller.m */,
+				5928B52517A170F500B68068 /* Historical_Controller.h */,
+				5928B52617A170F500B68068 /* Historical_Controller.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -297,6 +305,7 @@
 				5928B52017A167C600B68068 /* Default.png in Resources */,
 				5928B52217A167C900B68068 /* Default@2x.png in Resources */,
 				5928B52417A167CB00B68068 /* Default-568h@2x.png in Resources */,
+				5928B52917A170F500B68068 /* Historical_Controller.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +323,7 @@
 				59A2661E16BAB822004FD86A /* Weather.m in Sources */,
 				59A2662116BAB9DE004FD86A /* DTG_WeatherStation.m in Sources */,
 				59C4218416DA972D00491C53 /* Settings_Controller.m in Sources */,
+				5928B52817A170F500B68068 /* Historical_Controller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
