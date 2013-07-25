@@ -12,7 +12,9 @@
 
 @property(strong)IBOutlet UILabel *update_time;
 @property(strong)IBOutlet UIStepper *stepper;
+@property(strong)IBOutlet UISwitch *sun_switch;
 
 -(IBAction)value_changed:(id)sender;
+-(IBAction)switch_changed:(id)sender;
 
 @end

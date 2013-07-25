@@ -7,6 +7,8 @@
 //
 
 #import "Settings_Controller.h"
+#import "AppDelegate.h"
+#import "CurrentWeather_Controller.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface Settings_Controller ()
@@ -40,6 +42,13 @@
 
 	[[self stepper] setValue:(double)poll_time];
 	
+	//Setup the switch
+	int show_sun = [defaults integerForKey:@"SHOW_SUN"];
+	if(show_sun == 0)
+		[[self sun_switch] setOn:NO];
+	else
+		[[self sun_switch] setOn:YES];
+	
 	
 	//The gray background
 	CGRect main_frame = [[UIScreen mainScreen] bounds];
@@ -59,6 +68,19 @@
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:(int)stepper_value forKey:@"POLL_TIME"];
 	[defaults synchronize];
+}
+
+-(IBAction)switch_changed:(id)sender{
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults setInteger:[[self sun_switch] isOn] forKey:@"SHOW_SUN"];
+	
+	AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+	NSArray *view_cs = [[delegate tabBarController] viewControllers];
+	for(UIViewController *vc in view_cs){
+		if([vc isKindOfClass:[CurrentWeather_Controller class]]){
+			[((CurrentWeather_Controller *)vc) invalidate_weather];
+		}
+	}
 }
 
 - (void)didReceiveMemoryWarning
