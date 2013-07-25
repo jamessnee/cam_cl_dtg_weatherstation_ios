@@ -6,19 +6,20 @@
 //  Copyright (c) 2013 James Snee. All rights reserved.
 //
 
-#import "HistoricalViewController.h"
+#import "Historical_Controller.h"
 
-@interface HistoricalViewController ()
+@interface Historical_Controller ()
 
 @end
 
-@implementation HistoricalViewController
+@implementation Historical_Controller
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.title = @"Historical";
+//		self.tabBarItem.image = [UIImage imageNamed:@"tab_settings.png"];
     }
     return self;
 }
