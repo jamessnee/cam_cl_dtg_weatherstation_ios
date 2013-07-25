@@ -11,6 +11,7 @@
 #import "CurrentWeather_Controller.h"
 #import "About_Controller.h"
 #import "Settings_Controller.h"
+#import "Historical_Controller.h"
 
 @implementation AppDelegate
 
@@ -21,8 +22,9 @@
 	UIViewController *viewController1 = [[CurrentWeather_Controller alloc] initWithNibName:@"CurrentWeather_Controller" bundle:nil];
 	UIViewController *viewController2 = [[Settings_Controller alloc] initWithNibName:@"Settings_Controller" bundle:nil];
 	UIViewController *viewController3 = [[About_Controller alloc] initWithNibName:@"About_Controller" bundle:nil];
+	UIViewController *viewcontroller4 = [[Historical_Controller alloc] initWithNibName:@"Historical_Controller" bundle:nil];
 	self.tabBarController = [[UITabBarController alloc] init];
-	self.tabBarController.viewControllers = @[viewController1, viewController2, viewController3];
+	self.tabBarController.viewControllers = @[viewController1, viewController2, viewController3, viewcontroller4];
 	self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
