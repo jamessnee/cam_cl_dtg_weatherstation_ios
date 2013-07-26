@@ -412,8 +412,8 @@
 		59A2661416BAB6D4004FD86A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: James Snee (UZF6782G72)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: James Snee (UZF6782G72)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: James Snee";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: James Snee";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DTG_Weather/DTG_Weather-Prefix.pch";
 				INFOPLIST_FILE = "DTG_Weather/DTG_Weather-Info.plist";
@@ -423,8 +423,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "DTG Weather";
-				PROVISIONING_PROFILE = "1354DA62-A3AB-4B6B-B1B9-0168C771738B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1354DA62-A3AB-4B6B-B1B9-0168C771738B";
+				PROVISIONING_PROFILE = "518BD2C4-2C24-4649-853D-695AA7A63268";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "518BD2C4-2C24-4649-853D-695AA7A63268";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -432,8 +432,8 @@
 		59A2661516BAB6D4004FD86A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: James Snee (UZF6782G72)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: James Snee (UZF6782G72)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: James Snee";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: James Snee";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DTG_Weather/DTG_Weather-Prefix.pch";
 				INFOPLIST_FILE = "DTG_Weather/DTG_Weather-Info.plist";
@@ -443,8 +443,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "DTG Weather";
-				PROVISIONING_PROFILE = "1354DA62-A3AB-4B6B-B1B9-0168C771738B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1354DA62-A3AB-4B6B-B1B9-0168C771738B";
+				PROVISIONING_PROFILE = "518BD2C4-2C24-4649-853D-695AA7A63268";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "518BD2C4-2C24-4649-853D-695AA7A63268";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

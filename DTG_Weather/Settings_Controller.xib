@@ -104,6 +104,7 @@
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<bool key="IBUIEditable">NO</bool>
 						<string key="IBUIText">Poll Time: how many minutes between updates (whilst the app is open).</string>
 						<reference key="IBUITextColor" ref="305308480"/>
 						<int key="IBUITextAlignment">1</int>
@@ -135,6 +136,7 @@
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<bool key="IBUIEditable">NO</bool>
 						<string key="IBUIText">Show sunshine information for today, instead of dew point.</string>
 						<reference key="IBUITextColor" ref="305308480"/>
 						<int key="IBUITextAlignment">1</int>
@@ -241,7 +243,6 @@
 						<string key="NSFrame">{{107, 355}, {94, 27}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
