@@ -10,8 +10,11 @@
 #import "AppDelegate.h"
 #import "CurrentWeather_Controller.h"
 #import <QuartzCore/QuartzCore.h>
+#import "FlatUIKit.h"
+#import "FUISwitch.h"
 
 @interface Settings_Controller ()
+@property(strong)FUISwitch *flat_sun_switch;
 @end
 
 @implementation Settings_Controller
@@ -30,6 +33,8 @@
 {
     [super viewDidLoad];
 	
+	[self setup_ui];
+	
 	//Get the current poll value & set the label
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSInteger poll_time = [defaults integerForKey:@"POLL_TIME"];
@@ -45,18 +50,33 @@
 	//Setup the switch
 	int show_sun = [defaults integerForKey:@"SHOW_SUN"];
 	if(show_sun == 0)
-		[[self sun_switch] setOn:NO];
+		[[self flat_sun_switch] setOn:NO];
 	else
-		[[self sun_switch] setOn:YES];
-	
-	
-	//The gray background
+		[[self flat_sun_switch] setOn:YES];
+}
+
+-(void)setup_ui{
+	// The gray background
 	CGRect main_frame = [[UIScreen mainScreen] bounds];
 	UIView *grey_bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, main_frame.size.width, main_frame.size.height)];
 	[grey_bg setBackgroundColor:[UIColor blackColor]];
 	[grey_bg setAlpha:0.2];
 	[[self view] insertSubview:grey_bg atIndex:1];
 	
+	// Flatten the stepper
+	[[self stepper] configureFlatStepperWithColor:[UIColor cloudsColor]
+								 highlightedColor:[UIColor silverColor]
+									disabledColor:[UIColor amethystColor]
+										iconColor:[UIColor grayColor]];
+	
+	[self setFlat_sun_switch:[[FUISwitch alloc] initWithFrame:[[self sun_switch] frame]]];
+	[self flat_sun_switch].onColor = [UIColor turquoiseColor];
+	[self flat_sun_switch].offColor = [UIColor cloudsColor];
+	[self flat_sun_switch].onBackgroundColor = [UIColor midnightBlueColor];
+	[self flat_sun_switch].offBackgroundColor = [UIColor midnightBlueColor];
+	[self flat_sun_switch].highlightedColor = [UIColor silverColor];
+	[[self flat_sun_switch] addTarget:self action:@selector(switch_changed:) forControlEvents:UIControlEventValueChanged];
+	[[self view] addSubview:[self flat_sun_switch]];
 }
 
 -(IBAction)value_changed:(id)sender{
@@ -72,7 +92,7 @@
 
 -(IBAction)switch_changed:(id)sender{
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[defaults setInteger:[[self sun_switch] isOn] forKey:@"SHOW_SUN"];
+	[defaults setInteger:[[self flat_sun_switch] isOn] forKey:@"SHOW_SUN"];
 	
 	AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
 	NSArray *view_cs = [[delegate tabBarController] viewControllers];

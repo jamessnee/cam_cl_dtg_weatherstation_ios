@@ -14,6 +14,7 @@
 @property(strong)IBOutlet UIStepper *stepper;
 @property(strong)IBOutlet UISwitch *sun_switch;
 
+-(void)setup_ui;
 -(IBAction)value_changed:(id)sender;
 -(IBAction)switch_changed:(id)sender;
 
