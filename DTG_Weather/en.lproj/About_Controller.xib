@@ -46,7 +46,6 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{320, 411}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="526620572"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -61,7 +60,6 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrameSize">{320, 411}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -70,7 +68,6 @@
 				</array>
 				<string key="NSFrame">{{0, 20}, {320, 411}}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="298712666"/>
 				<object class="NSColor" key="IBUIBackgroundColor" id="353764051">
 					<int key="NSColorSpace">3</int>
@@ -106,7 +103,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 20}, {280, 57}}</string>
 						<reference key="NSSuperview" ref="306769574"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="914400535"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -137,7 +133,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 209}, {280, 40}}</string>
 						<reference key="NSSuperview" ref="306769574"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="169827791"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -168,7 +163,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 379}, {280, 40}}</string>
 						<reference key="NSSuperview" ref="306769574"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="556087293"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -199,7 +193,6 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{0, 479}, {320, 172}}</string>
 						<reference key="NSSuperview" ref="306769574"/>
-						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -210,7 +203,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 85}, {280, 104}}</string>
 						<reference key="NSSuperview" ref="306769574"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="811758132"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="431698329">
@@ -247,7 +239,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 257}, {280, 107}}</string>
 						<reference key="NSSuperview" ref="306769574"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="456399382"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<reference key="IBUIBackgroundColor" ref="431698329"/>
@@ -293,7 +284,6 @@ ZSByZWFkaW5nIGlzIGdyZWF0ZXIgb3IgbGVzcyB0aGFuIHRoZSBwcmV2aW91cyByZWFkaW5nLg</stri
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 427}, {280, 44}}</string>
 						<reference key="NSSuperview" ref="306769574"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="132711509"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -326,7 +316,6 @@ ZSByZWFkaW5nIGlzIGdyZWF0ZXIgb3IgbGVzcyB0aGFuIHRoZSBwcmV2aW91cyByZWFkaW5nLg</stri
 				</array>
 				<string key="NSFrameSize">{320, 651}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="126419443"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<reference key="IBUIBackgroundColor" ref="431698329"/>
