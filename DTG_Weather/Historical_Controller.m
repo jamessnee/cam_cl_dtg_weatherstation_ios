@@ -27,7 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+	NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"TestGraph" ofType:@"html"]];
+	NSLog(@"URL: %@",[url description]);
+	[[self web] loadRequest:[NSURLRequest requestWithURL:url]];
+	NSLog(@"Loaded request");
 }
 
 - (void)didReceiveMemoryWarning

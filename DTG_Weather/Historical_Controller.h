@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Historical_Controller : UIViewController
+@interface Historical_Controller : UIViewController <UIWebViewDelegate>
+
+@property(strong)IBOutlet UIWebView *web;
 
 @end
