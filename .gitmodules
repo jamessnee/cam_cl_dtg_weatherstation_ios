@@ -1,0 +1,3 @@
+[submodule "FlatUIKit"]
+	path = FlatUIKit
+	url = https://github.com/Grouper/FlatUIKit.git
