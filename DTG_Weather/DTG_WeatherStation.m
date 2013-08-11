@@ -139,4 +139,54 @@
 	return weathers;
 }
 
+- (NSArray *) get_weatherForDate:(NSString *)date_string andType:(NSString *)type{
+	NSLog(@"%@",type);
+	
+	NSString *url_s = [NSString stringWithFormat:@"http://www.cl.cam.ac.uk/research/dtg/weather/daily-text.cgi?%@",date_string];
+	NSURL *url = [NSURL URLWithString:url_s];
+	
+	NSError *error;
+	NSString *fetched_wx = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+	//NSLog(@"%@", fetched_wx);
+	
+	NSArray *lines = [fetched_wx componentsSeparatedByString:@"\n"];
+	
+	NSMutableArray *x = [[NSMutableArray alloc] init];
+	NSMutableArray *y = [[NSMutableArray alloc] init];
+	
+	for (int i=8; i<[lines count]; i++){
+		NSArray *line_comps = [(NSString *)[lines objectAtIndex:i] componentsSeparatedByString:@"\t"];
+		if(!([line_comps count]<8)){
+			[x addObject:[line_comps objectAtIndex:0]]; // The time the measurement was taken
+			if ([type isEqualToString:@"temp"])
+				[y  addObject:[line_comps objectAtIndex:1]];
+			else if ([type isEqualToString:@"humid"])
+				[y  addObject:[line_comps objectAtIndex:2]];
+			else if ([type isEqualToString:@"dewpt"])
+				[y  addObject:[line_comps objectAtIndex:3]];
+			else if ([type isEqualToString:@"press"])
+				[y  addObject:[line_comps objectAtIndex:4]];
+			else if ([type isEqualToString:@"wind"])
+				[y  addObject:[line_comps objectAtIndex:5]];
+			else if ([type isEqualToString:@"sun"])
+				[y  addObject:[line_comps objectAtIndex:7]];
+			else if ([type isEqualToString:@"rain"])
+				[y  addObject:[line_comps objectAtIndex:8]];
+				 
+		}
+	}
+	
+	// Normalise the time
+	for (int i=0; i<[x count]; i++){
+		if (i == 0)
+			[x replaceObjectAtIndex:0 withObject:@"0.0"];
+		else {
+			double new_num = [(NSString *)[x objectAtIndex:i-1] doubleValue] + .5;
+			[x replaceObjectAtIndex:i withObject:[NSString stringWithFormat:@"%0.01f",new_num]];
+		}
+	}
+	
+	return @[x,y];
+}
+
 @end
