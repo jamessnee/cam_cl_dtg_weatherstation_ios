@@ -15,5 +15,6 @@
 - (Weather *) get_currentWeather;
 - (NSArray *) get_weatherFrom:(NSDate *)start_date to:(NSDate *)end_date;
 - (NSArray *) get_weatherForToday;
+- (NSArray *) get_weatherForDate:(NSString *)date_string andType:(NSString *)type;
 
 @end
