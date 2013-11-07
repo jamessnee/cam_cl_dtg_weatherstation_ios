@@ -84,6 +84,7 @@
 		59C4218116DA972D00491C53 /* Settings_Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings_Controller.h; sourceTree = "<group>"; };
 		59C4218216DA972D00491C53 /* Settings_Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings_Controller.m; sourceTree = "<group>"; };
 		59C4218316DA972D00491C53 /* Settings_Controller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Settings_Controller.xib; sourceTree = "<group>"; };
+		59CA6FF2182C4DBD00026327 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		59DE698616BD7EC7005060F7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		59EF6C0A16BDDC57003A5129 /* PopupChart_ControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupChart_ControllerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +152,7 @@
 				59A2661616BAB6DF004FD86A /* Connections */,
 				59A265F416BAB6D4004FD86A /* AppDelegate.h */,
 				59A265F516BAB6D4004FD86A /* AppDelegate.m */,
+				59CA6FF2182C4DBD00026327 /* Constants.h */,
 				59A265EC16BAB6D4004FD86A /* Supporting Files */,
 			);
 			path = DTG_Weather;
