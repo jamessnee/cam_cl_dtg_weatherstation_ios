@@ -255,6 +255,15 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "James Snee";
+				TargetAttributes = {
+					59A265E116BAB6D4004FD86A = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 59A265DD16BAB6D4004FD86A /* Build configuration list for PBXProject "DTG_Weather" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -424,8 +433,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "DTG Weather";
-				PROVISIONING_PROFILE = "518BD2C4-2C24-4649-853D-695AA7A63268";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "518BD2C4-2C24-4649-853D-695AA7A63268";
+				PROVISIONING_PROFILE = "F16E37E5-730E-472A-B9F0-4EE02BA08408";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F16E37E5-730E-472A-B9F0-4EE02BA08408";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -445,8 +454,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "DTG Weather";
-				PROVISIONING_PROFILE = "518BD2C4-2C24-4649-853D-695AA7A63268";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "518BD2C4-2C24-4649-853D-695AA7A63268";
+				PROVISIONING_PROFILE = "F16E37E5-730E-472A-B9F0-4EE02BA08408";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F16E37E5-730E-472A-B9F0-4EE02BA08408";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
