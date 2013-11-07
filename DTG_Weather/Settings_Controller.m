@@ -35,13 +35,9 @@
 	NSInteger poll_time = [defaults integerForKey:kPOLL_TIME];
 	if(poll_time)
 		[[self update_time] setText:[NSString stringWithFormat:@"%d",poll_time]];
-	else{
-		[[self update_time] setText:@"1"];
-		poll_time = 1;
-	}
 
 	[[self stepper] setValue:(double)poll_time];
-	
+    
 	//Setup the switch
 	int show_sun = [defaults integerForKey:@"SHOW_SUN"];
 	if(show_sun == 0)
