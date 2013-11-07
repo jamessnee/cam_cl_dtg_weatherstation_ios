@@ -61,12 +61,16 @@
 -(IBAction)value_changed:(id)sender{
 	UIStepper *stepper = (UIStepper *)sender;	//We're sure that this is the only thing that will call this method.
 	double stepper_value = [stepper value];
-	[[self update_time] setText:[NSString stringWithFormat:@"%d",(int)stepper_value]];
+    int step_val = (int)stepper_value;
+	[[self update_time] setText:[NSString stringWithFormat:@"%d",step_val]];
 	
 	//Store the new time
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[defaults setInteger:(int)stepper_value forKey:kPOLL_TIME];
+	[defaults setInteger:step_val forKey:kPOLL_TIME];
 	[defaults synchronize];
+    
+    //Set the new time as the background fetch hint
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:(step_val * 60)];
 }
 
 -(IBAction)switch_changed:(id)sender{
