@@ -11,21 +11,42 @@
 #import "CurrentWeather_Controller.h"
 #import "About_Controller.h"
 #import "Settings_Controller.h"
+#import "DTG_WeatherStation.h"
+
+@interface AppDelegate ()
+@property (strong, nonatomic) CurrentWeather_Controller *current_weather_controller;
+@end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Setup the background fetch interval
+    double poll_time = -1;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    poll_time = [defaults doubleForKey:@"POLL_TIME"];
+    poll_time = poll_time * 60;
+    if (poll_time != -1)
+        [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:poll_time];
+    else
+        [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:300];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-	UIViewController *viewController1 = [[CurrentWeather_Controller alloc] initWithNibName:@"CurrentWeather_Controller" bundle:nil];
+    [self setCurrent_weather_controller:[[CurrentWeather_Controller alloc] initWithNibName:@"CurrentWeather_Controller" bundle:nil]];
 	UIViewController *viewController2 = [[Settings_Controller alloc] initWithNibName:@"Settings_Controller" bundle:nil];
 	UIViewController *viewController3 = [[About_Controller alloc] initWithNibName:@"About_Controller" bundle:nil];
 	self.tabBarController = [[UITabBarController alloc] init];
-	self.tabBarController.viewControllers = @[viewController1, viewController2, viewController3];
+	self.tabBarController.viewControllers = @[self.current_weather_controller, viewController2, viewController3];
 	self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    DTG_WeatherStation *weather_station = [[DTG_WeatherStation alloc] init];
+    Weather *temp_weather = [weather_station get_currentWeather];
+    [self.current_weather_controller setCurrent_weather:temp_weather];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
