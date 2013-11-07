@@ -14,5 +14,6 @@
 #define kPOLL_TIME @"POLL_TIME"
 #define kSHOW_SUN @"SHOW_SUN"
 #define kGREY_BG_ALPHA 0.2
+#define kDEFAULT_UPDATE_TIME 30
 
 #endif
