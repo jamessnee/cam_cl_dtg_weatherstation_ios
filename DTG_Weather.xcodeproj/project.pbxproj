@@ -417,6 +417,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DTG_Weather/DTG_Weather-Prefix.pch";
 				INFOPLIST_FILE = "DTG_Weather/DTG_Weather-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/DTG_Weather\"",
@@ -437,6 +438,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DTG_Weather/DTG_Weather-Prefix.pch";
 				INFOPLIST_FILE = "DTG_Weather/DTG_Weather-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/DTG_Weather\"",
