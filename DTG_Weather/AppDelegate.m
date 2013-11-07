@@ -24,7 +24,7 @@
     //Setup the background fetch interval
     double poll_time = -1;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    poll_time = [defaults doubleForKey:@"POLL_TIME"];
+    poll_time = [defaults doubleForKey:kPOLL_TIME];
     poll_time = poll_time * 60;
     if (poll_time != -1)
         [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:poll_time];

@@ -39,7 +39,7 @@ float max_y;
 	CGRect main_frame = [[UIScreen mainScreen] bounds];
 	UIView *grey_bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, main_frame.size.width, main_frame.size.height)];
 	[grey_bg setBackgroundColor:[UIColor blackColor]];
-	[grey_bg setAlpha:0.2];
+	[grey_bg setAlpha:kGREY_BG_ALPHA];
 	[[self view] insertSubview:grey_bg atIndex:1];
 	
 	MKCoordinateRegion CSC;

@@ -13,7 +13,7 @@
 
 - (Weather *)get_currentWeather{
 	NSError *error;
-	NSString *weather_string = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"https://www.cl.cam.ac.uk/research/dtg/weather/current-obs.txt"] encoding:NSUTF8StringEncoding error:&error];
+	NSString *weather_string = [NSString stringWithContentsOfURL:[NSURL URLWithString:kWS_URL_WEATHER] encoding:NSUTF8StringEncoding error:&error];
 	weather_string = [weather_string stringByReplacingOccurrencesOfString:@" " withString:@""];
 	if(error){
 		return nil;

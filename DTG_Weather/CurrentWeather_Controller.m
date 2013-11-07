@@ -60,7 +60,7 @@
 	CGRect main_frame = [[UIScreen mainScreen] bounds];
 	UIView *grey_bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, main_frame.size.width, main_frame.size.height)];
 	[grey_bg setBackgroundColor:[UIColor blackColor]];
-	[grey_bg setAlpha:0.2];
+	[grey_bg setAlpha:kGREY_BG_ALPHA];
 	[[self view] insertSubview:grey_bg atIndex:1];
 	
 	//Fix the iphone 5 view
@@ -72,17 +72,17 @@
 	
 	//Get the current poll time, set it if it's not there
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSInteger pt = [defaults integerForKey:@"POLL_TIME"];
+	NSInteger pt = [defaults integerForKey:kPOLL_TIME];
 	if(pt)
 		[self setPoll_time:pt];
 	else{
 		pt = 1;
-		[defaults setInteger:pt forKey:@"POLL_TIME"];
+		[defaults setInteger:pt forKey:kPOLL_TIME];
 		[defaults synchronize];
 		[self setPoll_time:pt];
 	}
 	
-	if(![self check_reachability:WS_URL]){
+	if(![self check_reachability:kWS_URL]){
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection" message:@"I cannot talk to the weather station. Please check your network settings, or try back later." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 		[alert show];
 	}
@@ -91,7 +91,7 @@
 
 -(BOOL)check_reachability:(NSString *)url{
 	NSError *error;
-	[NSString stringWithContentsOfURL:[NSURL URLWithString:WS_URL] encoding:NSUTF8StringEncoding error:&error];
+	[NSString stringWithContentsOfURL:[NSURL URLWithString:kWS_URL] encoding:NSUTF8StringEncoding error:&error];
 	if(error) {
 		return NO;
 	} else {
@@ -111,7 +111,7 @@
 	
 	//Now check whether the poll time has changed since we last looked
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSInteger pt = [defaults integerForKey:@"POLL_TIME"];
+	NSInteger pt = [defaults integerForKey:kPOLL_TIME];
 	if(pt!=[self poll_time]){
 		//We need to store the new one, invalidate the timer and start it again (with the new time)
 		[self setPoll_time:pt];
@@ -125,7 +125,7 @@
 
 -(void)update_weather{
 	long curr_time = [NSDate timeIntervalSinceReferenceDate];
-	if((update_timestamp==-1||(curr_time-update_timestamp)>30)&&[self check_reachability:WS_URL]){
+	if((update_timestamp==-1||(curr_time-update_timestamp)>30)&&[self check_reachability:kWS_URL]){
 		
 		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 		
@@ -150,7 +150,7 @@
 					
 					//Find out whether we should show dew point or sun
 					NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-					int show_sun = [defaults integerForKey:@"SHOW_SUN"];
+					int show_sun = [defaults integerForKey:kSHOW_SUN];
 					
 					[temp_label setText:curr_temp];
 					[humid_label setText:curr_humid];
