@@ -76,7 +76,7 @@
 	if(pt)
 		[self setPoll_time:pt];
 	else{
-		pt = 1;
+		pt = kDEFAULT_UPDATE_TIME;
 		[defaults setInteger:pt forKey:kPOLL_TIME];
 		[defaults synchronize];
 		[self setPoll_time:pt];
