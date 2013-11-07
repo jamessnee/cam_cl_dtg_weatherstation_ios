@@ -48,6 +48,9 @@
 		[[self sun_switch] setOn:NO];
 	else
 		[[self sun_switch] setOn:YES];
+    
+    //Set the stepper background
+    [[self stepper] setTintColor:[UIColor whiteColor]];
 	
 	
 	//The gray background
