@@ -9,6 +9,10 @@
 #ifndef DTG_Weather_Constants_h
 #define DTG_Weather_Constants_h
 
-#define WS_URL @"http://www.cl.cam.ac.uk/research/dtg/weather/"
+#define kWS_URL @"http://www.cl.cam.ac.uk/research/dtg/weather/"
+#define kWS_URL_WEATHER @"https://www.cl.cam.ac.uk/research/dtg/weather/current-obs.txt"
+#define kPOLL_TIME @"POLL_TIME"
+#define kSHOW_SUN @"SHOW_SUN"
+#define kGREY_BG_ALPHA 0.2
 
 #endif
