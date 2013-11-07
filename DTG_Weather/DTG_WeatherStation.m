@@ -83,6 +83,17 @@
 	summary_str = [[summary_str componentsSeparatedByString:@":"] objectAtIndex:1];
 	[weather setSummary:summary_str];
 //	NSLog(@"%@",[weather summary]);
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendarUnit unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit| NSWeekCalendarUnit |NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSDate *date = [NSDate date];
+    NSDateComponents *dateComponents = [calendar components:unitFlags fromDate:date];
+    NSString *update_str;
+    if([dateComponents minute]<10)
+        update_str = [NSString stringWithFormat:@"Last update: %d:0%d",[dateComponents hour],[dateComponents minute]];
+    else
+        update_str = [NSString stringWithFormat:@"Last update: %d:%d",[dateComponents hour],[dateComponents minute]];
+    [weather setUpdate_time:update_str];
 	
 	return weather;
 }
