@@ -128,8 +128,6 @@
 -(void)update_weather{
 	long curr_time = [NSDate timeIntervalSinceReferenceDate];
 	if((update_timestamp==-1||(curr_time-update_timestamp)>30)&&[self check_reachability:WS_URL]){
-	//if(YES){
-	//if([self check_reachability]){
 		
 		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 		
