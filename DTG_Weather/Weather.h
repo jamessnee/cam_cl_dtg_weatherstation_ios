@@ -11,6 +11,7 @@
 @interface Weather : NSObject
 
 @property float time;
+@property (strong) NSString *update_time;
 @property float temp;
 @property int humidity;
 @property float dew_point;
