@@ -11,8 +11,6 @@
 #import "Weather.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define WS_URL @"http://www.cl.cam.ac.uk/research/dtg/weather/"
-
 @interface CurrentWeather_Controller ()
 	@property long update_timestamp;
 	@property (strong)NSTimer *timer;
