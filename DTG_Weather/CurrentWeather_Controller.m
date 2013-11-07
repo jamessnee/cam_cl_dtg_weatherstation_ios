@@ -172,17 +172,8 @@
 					[wind_label setText:curr_wind];
 					
 					//The last update time
-					NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-					NSCalendarUnit unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit| NSWeekCalendarUnit |NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
-					NSDate *date = [NSDate date];
-					NSDateComponents *dateComponents = [calendar components:unitFlags fromDate:date];
-					NSString *update_str;
-					if([dateComponents minute]<10)
-						update_str = [NSString stringWithFormat:@"Last update: %d:0%d",[dateComponents hour],[dateComponents minute]];
-					else
-						update_str = [NSString stringWithFormat:@"Last update: %d:%d",[dateComponents hour],[dateComponents minute]];
-					[update_label setText:update_str];
-					
+					[update_label setText:[temp_weather update_time]];
+                    
 					//Change the background image based on the current weather
 					NSArray *summary_comps = [[temp_weather summary] componentsSeparatedByString:@","];
 					if([summary_comps count]<4){
