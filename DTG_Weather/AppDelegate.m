@@ -29,7 +29,7 @@
     if (poll_time != -1)
         [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:poll_time];
     else
-        [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:300];
+        [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:(kDEFAULT_UPDATE_TIME * 60)];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
