@@ -82,10 +82,13 @@
 		[self setPoll_time:pt];
 	}
 	
+    //Check the weather station reachability
 	if(![self check_reachability:kWS_URL]){
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection" message:@"I cannot talk to the weather station. Please check your network settings, or try back later." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 		[alert show];
 	}
+    
+    //Kick the background timer off
 	[self start_the_timer];
 }
 
