@@ -43,11 +43,13 @@
     return YES;
 }
 
+/*
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
     DTG_WeatherStation *weather_station = [[DTG_WeatherStation alloc] init];
     Weather *temp_weather = [weather_station get_currentWeather];
     [self.current_weather_controller setCurrent_weather:temp_weather];
 }
+ */
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
