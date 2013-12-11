@@ -261,7 +261,7 @@
 					59A265E116BAB6D4004FD86A = {
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
