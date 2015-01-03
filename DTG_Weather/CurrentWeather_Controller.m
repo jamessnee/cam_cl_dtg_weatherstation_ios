@@ -7,8 +7,8 @@
 //
 
 #import "CurrentWeather_Controller.h"
-#import "DTG_WeatherStation.h"
-#import "Weather.h"
+@import DTG_Weather_Connection;
+
 #import <QuartzCore/QuartzCore.h>
 
 @interface CurrentWeather_Controller ()
@@ -81,20 +81,16 @@
 		[defaults synchronize];
 		[self setPoll_time:pt];
 	}
-	
-    //Check the weather station reachability
-	if(![self check_reachability:kWS_URL]){
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection" message:@"I cannot talk to the weather station. Please check your network settings, or try back later." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-		[alert show];
-	}
     
     //Kick the background timer off
-	[self start_the_timer];
+//	[self start_the_timer];
 }
 
 -(BOOL)check_reachability:(NSString *)url{
-	NSError *error;
-	[NSString stringWithContentsOfURL:[NSURL URLWithString:kWS_URL] encoding:NSUTF8StringEncoding error:&error];
+    NSError *error;
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:10];
+    NSURLResponse *response = nil;
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 	if(error) {
 		return NO;
 	} else {
@@ -110,7 +106,17 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-	[self update_weather];
+    [super viewDidAppear:animated];
+
+    //Check the weather station reachability
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+	if(![self check_reachability:kWS_URL]){
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Connection" message:@"I cannot talk to the weather station. Please check your network settings, or try back later." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		[alert show];
+	} else {
+        [self update_weather];
+    }
 	
 	//Now check whether the poll time has changed since we last looked
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
