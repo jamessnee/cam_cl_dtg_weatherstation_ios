@@ -40,12 +40,12 @@
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSInteger poll_time = [defaults integerForKey:kPOLL_TIME];
 	if(poll_time)
-		[[self update_time] setText:[NSString stringWithFormat:@"%d",poll_time]];
+		[[self update_time] setText:[NSString stringWithFormat:@"%ld",(long)poll_time]];
 
 	[[self stepper] setValue:(double)poll_time];
     
 	//Setup the switch
-	int show_sun = [defaults integerForKey:@"SHOW_SUN"];
+    int show_sun = (int)[defaults integerForKey:@"SHOW_SUN"];
 	if(show_sun == 0)
 		[[self sun_switch] setOn:NO];
 	else
